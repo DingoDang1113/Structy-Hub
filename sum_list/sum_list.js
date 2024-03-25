@@ -20,20 +20,13 @@ const sumList = (head) => {
 //   return total;
 ​
 // RECURSION
-  let total = 0; 
+  // let total = 0;    No need to declare total as val + sumList(head.next)
   
   if (head === null) return 0;
-  total += head.val + sumList(head.next);
+  return head.val + sumList(head.next);
   
-  return total;
-  
-  
-  
-  
+  // return total;
 };
 ​
 module.exports = {
   sumList,
-};
-​
-  
