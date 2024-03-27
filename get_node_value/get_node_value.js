@@ -1,3 +1,4 @@
+
 // class Node {
 //   constructor(val) {
 //     this.val = val;
@@ -6,20 +7,21 @@
 // }
 ​
 const getNodeValue = (head, index) => {
-  // todo
-  const arr = [];
-  let current = head;
+  // ITERATIVE => O(n)/ O(1)
+//   let count = 0;
+//   let current = head;
   
-  while(current !== null) {
-    arr.push(current.val);
-    current = current.next;
-  }
+//   while(current !== null) {
+//     if (count === index) {
+//       return current.val;
+//     }
+//     count += 1;
+//     current = current.next;
+//   }
   
+//   return null;
+// };
   
-  return arr[index] || null;
-};
+  //RECURSIVE O(n)/ O(n)
 ​
-module.exports = {
-  getNodeValue,
-};
-​
+  if (head === null) return null;
