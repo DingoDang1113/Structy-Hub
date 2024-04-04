@@ -6,22 +6,31 @@
 // }
 
 
-const isUnivalueList = (head) => {
-  // todo
-  let current = head;
-
-
-  while (current.next !== null) {
-    if (current.val !== current.next.val) {
-      return false
-    }
-    current = current.next;
+const isUnivalueList = (head, prev = null) => {
+  // Recursive
+  if (head === null) return true;
+  if (prev === null || prev === head.val) {
+    return isUnivalueList(head.next, head.val);
+  } else {
+    return false;
   }
-  return true;
-
-
   
 };
+
+
+// const isUnivalueList = (head) => {
+//   // Iterative
+//   let current = head;
+
+
+//   while (current !== null) {
+//     if (current.val !== head.val) {
+//       return false
+//     }
+//     current = current.next;
+//   }
+//   return true;
+// };
 
 
 module.exports = {
