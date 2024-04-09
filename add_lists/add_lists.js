@@ -31,10 +31,7 @@ const addLists = (head1, head2) => {
 
 
 
-  return dummyHead.next;
-
-
-  
+  return dummyHead.next;  
 };
 
 
