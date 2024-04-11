@@ -7,17 +7,25 @@
 
 
 const sumList = (head) => {
-  // Iterative 
-  let total = 0; 
-  let current = head; 
+  //RECURSION 
+  if (head === null) return 0; 
+  return head.val + sumList(head.next);
+  
+}
 
 
-  while(current !== null) {
-    total += current.val; 
-    current = current.next;
-  }
-  return total;
-};
+// const sumList = (head) => {
+//   // Iterative time: O(n), space: O(1)
+//   let total = 0; 
+//   let current = head; 
+
+
+//   while(current !== null) {
+//     total += current.val; 
+//     current = current.next;
+//   }
+//   return total;
+// };
 
 
 module.exports = {
