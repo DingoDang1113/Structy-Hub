@@ -22,8 +22,8 @@ const breadthFirstValues = (root) => {
     const current = queue.shift();
     result.push(current.val);
     
-    if (current.left !== null) queue.push(current.left);
-    if (current.right !== null) queue.push(current.right);
+    if (current.left ) queue.push(current.left);
+    if (current.right ) queue.push(current.right);
   }
 
 
