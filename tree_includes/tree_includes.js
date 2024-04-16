@@ -7,30 +7,57 @@
 // }
 
 
-const treeIncludes = (root, target) => {
-  // iterative - DFS 
-  if (root === null) return false;
-  const stack = [root];
+// const treeIncludes = (root, target) => {
+//   // RECURSION  
+//   if(root === null) return false; 
+//   if(root.val === target) return true; 
 
 
-  while (stack.length > 0) {
-    let current = stack.pop();
+//   if(root.left !== null) treeIncludes(root.left, target);
+//   if(root.right !== null) treeIncludes(root.right, target);
+// }
 
 
-    if (current.val === target) {
-      return true;
-    }
-    if(current.left) stack.push(current.left);
-    if(current.right) stack.push(current.right);
+
+
+// const treeIncludes = (root, target) => {
+//   // iterative - DFS 
+//   if (root === null) return false;
+//   const stack = [root];
+
+
+//   while (stack.length > 0) {
+//     let current = stack.pop();
+
+
+//     if (current.val === target) {
+//       return true;
+//     }
+//     if(current.left) stack.push(current.left);
+//     if(current.right) stack.push(current.right);
     
+//   }
+//   return false;
+// };
+const treeIncludes = (root, target) => {
+  //ITERATIVE - BFS
+  if (root === null) return false;
+  const queue = [root]; 
+ 
+  while (queue.length > 0) {
+    let current = queue.shift()
+    if (current.val === target) return true;
+
+
+    if(current.left) queue.push(current.left);
+    if(current.right) queue.push(current.right);
   }
   return false;
+}
 
 
-  
-  
-  
-};
+
+
 
 
 module.exports = {
