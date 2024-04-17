@@ -5,8 +5,25 @@
 //     this.right = null;
 //   }
 // }
+const treeMinValue = (root, minVal = root.val) => {
+  //RECURSION 
+  if(root === null) return minVal;
 
 
+  if(root.val < minVal) minVal = root.val;
+
+
+  if (treeMinValue(root.left, minVal) <= treeMinValue(root.right,minVal) ) {
+    return treeMinValue(root.left, minVal); 
+    } else {
+    return treeMinValue(root.right, minVal);
+    }
+  
+
+
+  
+}
+  
 // const treeMinValue = (root) => {
 //   // Iterative - DFS 
 //   const stack = [root]; 
@@ -26,23 +43,23 @@
 // };
 
 
-const treeMinValue = (root) => {
-  // Iterative - BFS 
-  const queue = [root]; 
-  let minVal = root.val; 
+// const treeMinValue = (root) => {
+//   // Iterative - BFS 
+//   const queue = [root]; 
+//   let minVal = root.val; 
 
 
-  while(queue.length > 0) {
-    let current = queue.shift();
-    if(minVal > current.val) {
-      minVal = current.val;
-    }
-    if(current.left) queue.push(current.left); 
-    if(current.right) queue.push(current.right);
-  }
-  return minVal;
+//   while(queue.length > 0) {
+//     let current = queue.shift();
+//     if(minVal > current.val) {
+//       minVal = current.val;
+//     }
+//     if(current.left) queue.push(current.left); 
+//     if(current.right) queue.push(current.right);
+//   }
+//   return minVal;
   
-};
+// };
 
 
 module.exports = {
