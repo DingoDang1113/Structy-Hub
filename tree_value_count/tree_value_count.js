@@ -6,6 +6,16 @@
 //   }
 // }
 
+const treeValueCount = (root, target) => {
+  // RECURSION 
+  if(root === null) return 0; 
+  let count = 0;
+  if(root.val === target) count += 1; 
+
+  return count + treeValueCount(root.left, target) + treeValueCount(root.right, target);
+  
+}
+
 
 // const treeValueCount = (root, target) => {
 //   // ITERATIVE - DFS 
@@ -33,30 +43,30 @@
 // };
 
 
-const treeValueCount = (root, target) => {
-  // ITERATIVE - BFS 
-  if (root === null) return 0;
-  const queue = [root]; 
-  let count = 0; 
+// const treeValueCount = (root, target) => {
+//   // ITERATIVE - BFS 
+//   if (root === null) return 0;
+//   const queue = [root]; 
+//   let count = 0; 
 
 
-  while (queue.length > 0) {
-    let current = queue.shift(); 
+//   while (queue.length > 0) {
+//     let current = queue.shift(); 
 
 
-    if(current.val === target) {
-      count += 1;
-    }
+//     if(current.val === target) {
+//       count += 1;
+//     }
 
 
-    if(current.left) queue.push(current.left);
-    if(current.right) queue.push(current.right);
+//     if(current.left) queue.push(current.left);
+//     if(current.right) queue.push(current.right);
     
-  }
+//   }
 
 
-  return count;
-};
+//   return count;
+// };
 
 
 
