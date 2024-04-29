@@ -8,7 +8,7 @@
 
 
 const leafList = (root) => {
-  // RECURSION 
+  // RECURSION - need to keep the format of edge cases consistent
   if (root === null) return [];
   if (root.left === null && root.right === null) return [root.val];
 
