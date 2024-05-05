@@ -37,14 +37,13 @@ connectedComponentsCount({
   8: []
 }); // -> 5
 const connectedComponentsCount = (graph) => {
-  // Iterative - DFS
-  const visited = new Set();
-  let count = 0;
-
-
+  const visited = new Set(); 
+  let count = 0; 
+  // Iterate through each node in the graph
   for (let node in graph) {
-    console.log(visited)
-    if (explore(graph, node, visited) === true) {
+    // if the current code hasn't been visited yet
+    if(explore(graph, node, visited)) {
+      // increment count + 1
       count += 1;
     }
   }
@@ -53,15 +52,50 @@ const connectedComponentsCount = (graph) => {
 
 
 const explore = (graph, current, visited) => {
+  //check if current node has been visited
+    // if yes, return false -> not activating explore recurrsion to check neighbors of current node
   if (visited.has(String(current))) return false;
+    // if not in the visited set, add current node into set
   visited.add(String(current));
 
 
-  for (let neighbor of graph[current]) {
+  // iterate through the neighbor of current node with recurrsion - DFS
+  for(let neighbor of graph[current]) {
     explore(graph, neighbor, visited);
-  }
+  };
+  // all connected nodes have been visited, return true to indicate for new connected component
   return true;
-};
+}
+
+
+//////  BFS SOLUTIONS ////////////
+// const connectedComponentsCount = (graph) => {
+//   const visited = new Set(); 
+//   let count = 0; 
+//   for (let node in graph) {
+//     if (!visited.has(node)) {
+//       bfs(graph, node, visited);
+//       count++;
+//     }
+//   }
+//   return count;
+// };
+
+
+// const bfs = (graph, start, visited) => {
+//   const queue = [start];
+//   visited.add(start);
+  
+//   while (queue.length > 0) {
+//     const current = queue.shift();
+//     for (let neighbor of graph[current]) {
+//       if (!visited.has(neighbor)) {
+//         visited.add(neighbor);
+//         queue.push(neighbor);
+//       }
+//     }
+//   }
+// };
 
 
 module.exports = {
