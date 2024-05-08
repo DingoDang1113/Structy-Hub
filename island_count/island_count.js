@@ -63,3 +63,27 @@ const explore = (grid, r, c, visited) => {
 
   const pos = r + ',' + c; 
   // basecase 3: check if pos has been visited, if visited then false
+  if (visited.has(pos)) return false;
+  //if not visited, then add to the set
+  visited.add(pos);
+
+
+  // traverse node up
+  explore(grid, r - 1, c, visited);
+  // traverse node down
+  explore(grid, r + 1, c, visited);
+  // traverse node left
+  explore(grid, r, c - 1, visited);
+  // traverse node right
+  explore(grid, r, c + 1, visited);
+
+
+  // finish all the traverse
+  return true;
+};
+
+
+module.exports = {
+  islandCount,
+};
+
