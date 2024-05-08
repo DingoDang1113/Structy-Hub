@@ -46,6 +46,7 @@ const islandCount = (grid) => {
       } 
     }
   }
+  // console.log(visited)
   return count;
 };
 
