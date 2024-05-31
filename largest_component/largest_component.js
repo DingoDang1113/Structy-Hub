@@ -38,7 +38,7 @@ largestComponent({
 }); // -> 3
 const largestComponent = (graph) => {
   let max = 0;
-  const visited = new Array(graph.length).fill(false); // Assuming graph is an array of arrays
+  const visited = new Array(graph.length).fill(false); // array might be a better choice with better time efficiency and space efficiency
   
   for (let node in graph) {
     let size = explore(graph, node, visited);
@@ -71,46 +71,4 @@ const explore = (graph, current, visited) => {
 
 
 
-
-
-
-
-// const largestComponent = (graph) => {
-//   let max = 0; 
-//   const visited = new Set();
-
-
-//   //iterate every node of graph 
-//   for(let node in graph) {
-//     const size = explore(graph, node, visited);
-//     if(size > max) {
-//       max = size;
-//     }
-//   }
-
-
-//   return max;  
-// };
-
-
-// const explore = (graph, current, visited) => {
-//   if (visited.has(current)) return 0;
-//   visited.add(current);
-
-
-//   let sum = 1;
-
-
-//   for (let neighbor of graph[current]) {
-//     sum += explore(graph, neighbor, visited);
-//   }
-
-
-//   return sum; 
-// };
-
-
-module.exports = {
-  largestComponent,
-};
-
+// --------------Decalare visited in Set -----------------
