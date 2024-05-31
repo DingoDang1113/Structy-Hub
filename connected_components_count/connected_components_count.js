@@ -88,17 +88,3 @@ const explore = (graph, current, visited) => {
   
 //   while (queue.length > 0) {
 //     const current = queue.shift();
-//     for (let neighbor of graph[current]) {
-//       if (!visited.has(neighbor)) {
-//         visited.add(neighbor);
-//         queue.push(neighbor);
-//       }
-//     }
-//   }
-// };
-
-
-module.exports = {
-  connectedComponentsCount,
-};
-
