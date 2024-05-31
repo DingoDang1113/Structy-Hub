@@ -13,6 +13,7 @@ const graph = {
   k: []
 };
 
+
 hasPath(graph, 'f', 'k'); // true
 
 test_01
@@ -25,6 +26,7 @@ const graph = {
   j: ['i'],
   k: []
 };
+
 
 hasPath(graph, 'f', 'j'); // false
 
@@ -39,6 +41,7 @@ const graph = {
   k: []
 };
 
+
 hasPath(graph, 'i', 'h'); // true
 
 test_03
@@ -51,6 +54,7 @@ const graph = {
   z: [],  
 };
 
+
 hasPath(graph, 'v', 'w'); // true
 
 test_04
@@ -62,5 +66,6 @@ const graph = {
   y: ['z'],
   z: [],  
 };
+
 
 hasPath(graph, 'v', 'z'); // false
