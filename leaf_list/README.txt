@@ -9,17 +9,20 @@ const d = new Node("d");
 const e = new Node("e");
 const f = new Node("f");
 
+
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
 c.right = f;
 
+
 //      a
 //    /   \
 //   b     c
 //  / \     \
 // d   e     f
+
 
 leafList(a); // -> [ 'd', 'e', 'f' ] 
 
@@ -34,6 +37,7 @@ const f = new Node("f");
 const g = new Node("g");
 const h = new Node("h");
 
+
 a.left = b;
 a.right = c;
 b.left = d;
@@ -42,6 +46,7 @@ c.right = f;
 e.left = g;
 f.right = h;
 
+
 //      a
 //    /   \
 //   b     c
@@ -49,6 +54,7 @@ f.right = h;
 // d   e     f
 //    /       \
 //   g         h
+
 
 leafList(a); // -> [ 'd', 'g', 'h' ]
 
@@ -62,12 +68,14 @@ const e = new Node(15);
 const f = new Node(1);
 const g = new Node(3);
 
+
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
 e.left = f;
 e.right = g;
+
 
 //        5
 //     /    \
@@ -77,13 +85,16 @@ e.right = g;
 //      / \
 //     1  3
 
+
 leafList(a); // -> [ 20, 1, 3, 54 ]
 
 test_03
 
 const x = new Node('x');
 
+
 //      x
+
 
 leafList(x); // -> [ 'x' ]
 
