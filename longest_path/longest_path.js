@@ -89,7 +89,7 @@ const longestPath = (graph) => {
   for (let node in graph) {
     traveseDist(graph, node, dist);
   }
-  // return the max val of dist obj
+  // return the max val of dist obj -> need ... to convert array to numbers
   return Math.max(...Object.values(dist));
 }
 
