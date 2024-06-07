@@ -54,6 +54,7 @@ const semestersRequired = (numCourses, prereqs) => {
       semester[course] = 1;
     }
   }
+  // console.log('initial semester', semester) // debug
   // iterate through the graph with dfs to populate the semester obj
   for (let course in graph) {
     traverseCourse(graph, course, semester)
@@ -61,7 +62,7 @@ const semestersRequired = (numCourses, prereqs) => {
 
 
   // return the max semester number 
-  // console.log(semester)
+  // console.log('final semester', semester) // debug -> semester did not change
   return Math.max(...Object.values(semester));
   
 };
@@ -82,6 +83,7 @@ const traverseCourse = (graph, course, semester) => {
 
   //add new course in semester
   semester[course] = 1 + maxSem; 
+  // console.log('couse', course, "semester", semester[course]) // not even triggering
   return semester[course];
 }
 
@@ -95,3 +97,13 @@ const buildGraph = (numCourses, prereqs) => {
   }
   for (let req of prereqs) {
     const [a,b] = req; 
+    graph[a].push(b)
+  }  
+  return graph;  
+};
+
+
+module.exports = {
+  semestersRequired,
+};
+
