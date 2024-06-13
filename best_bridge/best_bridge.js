@@ -68,11 +68,14 @@ const bestBridge = (grid) => {
   // iterate thru the grid to find the positions of mainIsland
   for (let r = 0; r < grid.length; r++) {
     for (let c = 0; c < grid[0].length; c++) {
-      const possibleIslands = traverseIsland(grid, r, c, new Set());
-      if(possibleIslands.size > 0) {
-        mainIsland = possibleIslands;
+      if(grid[r][c] === "L" && !mainIsland.size) {
+        mainIsland = traverseIsland(grid, r, c, new Set());
+        break;
       }
     }
+
+
+    if(mainIsland.size) break;   
   }
 
 
