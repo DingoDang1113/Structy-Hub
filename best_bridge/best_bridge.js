@@ -70,13 +70,11 @@ const bestBridge = (grid) => {
     for (let c = 0; c < grid[0].length; c++) {
       if(grid[r][c] === "L" && !mainIsland.size) {
         mainIsland = traverseIsland(grid, r, c, new Set());
-        break;
+        break; // exit the inner loop once the first island is found
       }
-    }
-
-
-    if(mainIsland.size) break;   
-  }
+    };
+    if(mainIsland.size) break;   // exit the outter loop 
+  };
 
 
   // BFS to check surrounding of each Land to find the distance between two islands
