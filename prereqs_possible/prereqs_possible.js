@@ -64,9 +64,15 @@ const prereqsPossible = (numCourses, prereqs) => {
 
   const visited = new Set();
   const visiting = new Set();
+
+
+  //converst edge list into adjacency list for better efficiency 
   const graph = buildGraph(numCourses, prereqs);
-  
+
+
+  //cycle detection 
   for (let node in graph) {
+    // check if traversing the graph starting from current node resulting in detection of cycle
     if (traverseCourse(graph, node,visited, visiting)) {
       return false;
     }
@@ -76,6 +82,7 @@ const prereqsPossible = (numCourses, prereqs) => {
 
 
 const traverseCourse = (graph, node, visited, visiting) => {
+  // edge case -> detection of cycle
   if (visiting.has(node)) return true; 
   visiting.add(node);
 
@@ -87,8 +94,7 @@ const traverseCourse = (graph, node, visited, visiting) => {
   };
   visiting.delete(node);
   visited.add(node);
-
-
+// no cycle has been detected 
   return false;
   
 };
@@ -96,13 +102,11 @@ const traverseCourse = (graph, node, visited, visiting) => {
 
 const buildGraph = (numCourses, prereqs) => {
   const graph = {}; 
-
-
+  // initiate the key 
   for (let i = 0; i < numCourses; i += 1) {
     graph[i] = [];
   }
-
-
+  // populating each key with courses  
   for (let prereq of prereqs) {
     const[a, b] = prereq; 
     graph[a].push(String(b));
