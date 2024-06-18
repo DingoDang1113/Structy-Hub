@@ -7,36 +7,30 @@ knightAttack(100, 21, 10, 0, 0); // -> 11
 knightAttack(3, 0, 0, 1, 2); // -> 1
 knightAttack(3, 0, 0, 1, 1); // -> null
 const knightAttack = (n, kr, kc, pr, pc) => {
-
-
-
-
-  const kMoves = [[2, 1], [2, -1], [-2, 1], [-2, -1],
-    [1, 2], [1, -2], [-1, 2], [-1, -2]];
-
-
-  return traverseK(n, kr, kc, pr, pc, kMoves);
-  
-};
-
-
-const inBounds = (n, row, col) => {
-  const rowInBounds = 0 <= row && row < n; 
-  const colInBounds = 0 <= col && col < n; 
-
-
-  return rowInBounds && colInBounds; 
-}; 
-
-
-const traverseK = (n, row, col, pr, pc, kMoves) => {
-  const visted = new Set(); 
-  visted.add([`${row}, ${col}`]); 
-
-
-  const queue = [[row, col, 0]]; 
+  const queue = [ [kr, kc, 0] ]; 
+  const visited = new Set(); 
+  visited.add(kr + "," + kc);
 
 
   while (queue.length > 0) {
-    const [currRow, currCol, steps] = queue.shift(); 
-    if(currRow === pr && currCol === pc) return steps;
+    const[r, c, step] = queue.shift();
+    if (r === pr && c === pc) return step;    
+    const neighborPositions = knightPos(n, r, c);
+    for (let neighborPos of neighborPositions) {
+      const [neighborRow, neighborCol] = neighborPos;
+      const neighborKey = neighborRow + "," + neighborCol;
+
+
+      if(!visited.has(neighborKey)) {
+        visited.add(neighborKey);
+        queue.push([neighborRow, neighborCol, step + 1]);
+      }
+    }
+  }
+  return null;
+
+
+};
+
+
+const knightPos = (n, kr, kc) => {
