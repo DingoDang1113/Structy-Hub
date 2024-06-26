@@ -10,20 +10,29 @@ sumPossible(2017, [4, 2, 10]); // -> false
 sumPossible(13, [3, 5]); // -> true
 sumPossible(10, [4, 5, 7]); // -> true
 const sumPossible = (amount, numbers, memo = {} ) => {
-  if (amount in memo) return memo[amount];
+  // basecase 1 - amount = 0 as null can achieve this  
+  if (amount === 0) return true;
+  // basecase 2 - amount < 0 (can't be negative)
   if (amount < 0 ) return false; 
-  if (amount === 0 ) return true;
+  // basecase 3 - amount is in memo, use that value to avoid repetitive calculation
+  if (amount in memo) return memo[amount]; 
 
 
-  for (let num of numbers) {    
-    if( sumPossible(amount - num, numbers, memo) === true) {
+  for (let num of numbers) {
+    if (sumPossible(amount - num, numbers, memo) === true) {
       memo[amount] = true;
-      return true
+      return true;
     }
   }
+  // console.log(memo)
   memo[amount] = false;
   return false;
+
+
 };
+
+
+sumPossible(8, [5, 12, 4])
 
 
 module.exports = {
