@@ -82,7 +82,7 @@ const grid = [
 ];
 countPaths(grid); // -> 3190434
 const countPaths = (grid, r=0, c=0, memo = {}) => {
-  const pos = r + "," + c;
+   const pos = r + "," + c;
   // basecase 1 - pos in memo
   if (pos in memo) return memo[pos];
   // basecase 2 - check if inbounds && meeting x
@@ -91,8 +91,11 @@ const countPaths = (grid, r=0, c=0, memo = {}) => {
   if ( r === grid.length - 1 && c ===grid[0].length - 1) return 1;
 
 
-  memo[pos] = countPaths(grid, r + 1, c, memo) + countPaths(grid, r, c + 1, memo)
+  // check pos move down or to the right 
+  memo[pos] = countPaths(grid, r + 1, c, memo) + countPaths(grid, r, c + 1, memo);
   return memo[pos];
+
+
 };
 
 
