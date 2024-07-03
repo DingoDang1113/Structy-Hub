@@ -19,21 +19,24 @@ countingChange(512, [1, 5, 10, 25]); // -> 20119
 countingChange(1000, [1, 5, 10, 25]); // -> 142511
 countingChange(240, [1, 2, 3, 4, 5, 6, 7, 8, 9]); // -> 1525987916
 const countingChange = (amount, coins,i=0, memo={}) => {
-  if (amount === 0) return 1;
-  const coin = coins[i];
+  //basecase amount = 0 
+  if (amount === 0) return 1; 
+  // 1 + 2 + 1 = 2 + 1 + 1
   const key = amount + ',' + i;
   if (key in memo) return memo[key];
+  // remainder = coin * qty
+  const coin = coins[i];
 
 
   let total = 0;
-  for(let qty=0; qty * coin <= amount; qty +=1) {
-    const remainder = amount - (qty*coin);
+  for(let qty = 0; qty * coin <= amount; qty++) {
+    const remainder = amount - coin * qty;
     total += countingChange(remainder, coins, i+1, memo);
   }
+
+
   memo[key] = total;
   return total;
-
-
 };
 
 
