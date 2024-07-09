@@ -5,7 +5,9 @@ const arrayStepper = (nums, i=0, memo={}) => {
   if (i in memo) return memo[i];
 
 
+  // current num -> steps <= num[i]
   const maxStep = nums[i];
+  // start step from 1 iterate all the possible steps til nums[i]
   for (let step = 1; step <= maxStep; step +=1) {
     if (arrayStepper(nums, i + step, memo) === true) {
       memo[i] = true; 
