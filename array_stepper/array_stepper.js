@@ -1,22 +1,26 @@
 const arrayStepper = (nums, i=0, memo={}) => {
-  // basecase - i equal to the last index 
-  if (i === nums.length - 1) return true;
-  // basecase - i has been visited 
+  // basecase - i reach last num 
+  if (i === nums.length - 1) return true; 
+  // basecase - i has been visted
   if (i in memo) return memo[i];
 
 
-  // current num -> steps <= num[i]
-  const maxStep = nums[i];
-  // start step from 1 iterate all the possible steps til nums[i]
-  for (let step = 1; step <= maxStep; step +=1) {
+  // declare max step as num[i] as steps <= nums[i]
+  const maxStep = nums[i]
+
+
+  for (let step = 1; step <= maxStep; step ++) {
     if (arrayStepper(nums, i + step, memo) === true) {
-      memo[i] = true; 
-      return true;
+      memo[i] = true
+      return true
     }
   }
+
+
   memo[i] = false;
   return false;
-  
+
+
   
 };
 
