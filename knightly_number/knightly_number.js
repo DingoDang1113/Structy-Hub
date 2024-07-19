@@ -1,4 +1,5 @@
 const knightlyNumber = (n, m, kr, kc, pr, pc, memo = {}) => {
+  // different path, different moves -> hence is essential to keep the m in the key
   const pos = m + "," + kr + "," + kc;
   if (pos in memo) return memo[pos];
   //check for in bounds
