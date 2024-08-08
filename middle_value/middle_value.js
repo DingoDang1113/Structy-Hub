@@ -15,9 +15,10 @@ const middleValue = (head) => {
     current = current.next;
   }
   // return the middle value of array 
-  const idx = result.length % 2 === 0 ? 
+  const mid = result.length % 2 === 0 ? 
     result.length / 2 : (result.length-1) /2 
-  return result[idx]
+  
+  return result[mid];
 };
 
 
