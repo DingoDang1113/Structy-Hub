@@ -11,12 +11,12 @@ const flipTree = (root) => {
   if (root === null) return null;
 
 
-  const left = flipTree(root.left);
-  const right = flipTree(root.right); 
+  const left = flipTree(root.right);
+  const right = flipTree(root.left);
 
 
-  root.left = right; 
-  root.right = left;
+  root.left = left;
+  root.right = right;
 
 
   return root;
