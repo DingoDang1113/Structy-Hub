@@ -41,6 +41,7 @@ const leftyNodes = (root) => {
   // dfs - will traverse the tree in depth first 
   
   const values = [];
+  // CLOSURE
   const traverse = (root, level) => {
       if (root === null) return ;
       // make sure the first node of the level will get to pushed 
