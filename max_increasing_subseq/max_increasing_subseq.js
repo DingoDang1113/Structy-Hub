@@ -17,7 +17,7 @@ const maxIncreasingSubseq = (numbers, i = 0, prevNum = -Infinity, memo={}) => {
   }
 
 
-  // console.log(options)
+  // console.log(memo)
   memo[key] = Math.max(...options);
   return memo[key];
   
