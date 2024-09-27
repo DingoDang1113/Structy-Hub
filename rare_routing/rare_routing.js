@@ -2,9 +2,9 @@ const rareRouting = (n, roads) => {
   // generate graph 
   const graph = generateGraph(n, roads);
 
-
   const visited = new Set();
   const valid = traverseCities("0", graph, visited, null);
+
 
   // iterate thru every node of the graph to check if any node has been visited before 
     // if has been visited, return false (means the route has been explored before)
