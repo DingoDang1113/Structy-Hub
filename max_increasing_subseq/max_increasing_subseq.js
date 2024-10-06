@@ -9,8 +9,6 @@ const maxIncreasingSubseq = (numbers, i = 0, prevNum = -Infinity, memo={}) => {
 
   const notTakeCurrent = maxIncreasingSubseq(numbers, i + 1, prevNum, memo);
   options.push( notTakeCurrent);
-
-
   if (current > prevNum) {
     const takeCurrent = 1 + maxIncreasingSubseq(numbers, i + 1, current, memo);
     options.push(takeCurrent)
