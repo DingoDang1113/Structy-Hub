@@ -1,46 +1,6 @@
-const grid = [
-  ['W', 'L', 'W', 'W', 'W'],
-  ['W', 'L', 'W', 'W', 'W'],
-  ['W', 'W', 'W', 'L', 'W'],
-  ['W', 'W', 'L', 'L', 'W'],
-  ['L', 'W', 'W', 'L', 'L'],
-  ['L', 'L', 'W', 'W', 'W'],
-];
-
-
-minimumIsland(grid); // -> 2
-const grid = [
-  ['L', 'W', 'W', 'L', 'W'],
-  ['L', 'W', 'W', 'L', 'L'],
-  ['W', 'L', 'W', 'L', 'W'],
-  ['W', 'W', 'W', 'W', 'W'],
-  ['W', 'W', 'L', 'L', 'L'],
-];
-
-
-minimumIsland(grid); // -> 1
-const grid = [
-  ['L', 'L', 'L'],
-  ['L', 'L', 'L'],
-  ['L', 'L', 'L'],
-];
-
-
-minimumIsland(grid); // -> 9
-const grid = [
-  ['W', 'W'],
-  ['L', 'L'],
-  ['W', 'W'],
-  ['W', 'L']
-];
-
-
-minimumIsland(grid); // -> 1
 const minimumIsland = (grid) => {
   const visited = new Set();
   let minSize = Infinity;
-
-
   for (let r = 0; r < grid.length; r += 1) {
     for (let c = 0; c < grid[0].length; c += 1) {
       const size = explore(grid, r, c, visited);
@@ -49,7 +9,6 @@ const minimumIsland = (grid) => {
       }
     }
   }
-  // console.log(visited)
   return minSize;
 };
 
