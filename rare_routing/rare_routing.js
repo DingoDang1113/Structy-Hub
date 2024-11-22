@@ -2,6 +2,7 @@ const rareRouting = (n, roads) => {
   // generate graph 
   const graph = generateGraph(n, roads);
 
+
   const visited = new Set();
   const valid = traverseCities("0", graph, visited, null);
 
